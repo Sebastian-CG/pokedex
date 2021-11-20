@@ -1,10 +1,11 @@
 import { MdFilterAlt } from "react-icons/md";
 import styles from "../styles/action-bar.module.css";
 
-const ActionBar = ({ visibleFilter, openFilter }) => {
-  const pClick = e => {
+const ActionBar = ({ types, changeFilter, visibleFilter, openFilter }) => {
+  const pClick = (e, type) => {
     e.stopPropagation();
-    console.log("Click en el element");
+    changeFilter(type);
+    console.log(type);
   };
 
   const btnFilter = e => {
@@ -19,12 +20,11 @@ const ActionBar = ({ visibleFilter, openFilter }) => {
         Filter
         {visibleFilter && (
           <div className={styles.filterContainer}>
-            <p onClick={pClick}>Fire</p>
-            <p onClick={pClick}>Water</p>
-            <p onClick={pClick}>Air</p>
-            <p onClick={pClick}>Ice</p>
-            <p onClick={pClick}>Land</p>
-            <p onClick={pClick}>Poison</p>
+            {types.map(type => (
+              <p key={type} onClick={e => pClick(e, type)}>
+                {type}
+              </p>
+            ))}
           </div>
         )}
       </button>
