@@ -34,9 +34,6 @@ const Home = ({ types, pokemons }) => {
     eventClick: handleClick,
   };
 
-  console.log(pokemons);
-  console.log(types);
-
   return (
     <Layout {...dataHead}>
       <Header setSearch={setSearch} />

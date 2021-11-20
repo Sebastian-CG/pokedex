@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
 
-  width: 40px;  
+  width: 40px;
   height: 40px;
 
   font-size: 30px;
@@ -13,11 +13,11 @@
 
   cursor: default;
   border-radius: 10px;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease;
 }
 
 .backButton:active {
-  transform: scale(.8);
+  transform: scale(0.8);
 }
 
 .pokemonName {
@@ -37,6 +37,26 @@
 
 .ImageContainer img {
   width: 100%;
+}
+
+.gridInfoBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 100px;
+  gap: 20px;
+  margin-top: 70px;
+}
+
+.infoBox {
+  padding: 10px;
+  color: #ffffff;
+  background-color: #ffffff50;
+  border-radius: 20px;
+  text-transform: capitalize;
+}
+
+.infoBox h3 {
+  margin-bottom: 10px;
 }
 
 @media (min-width: 500px) {
