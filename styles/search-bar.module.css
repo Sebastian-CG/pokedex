@@ -1,0 +1,48 @@
+.container {
+  position: relative;
+  width: 90%;
+  height: 3.125rem;
+  max-width: 31.25rem;
+  color: #474747;
+}
+
+.container svg {
+  position: absolute;
+  top: 0;
+  left: 0.9375rem;
+  bottom: 0;
+  margin: auto;
+  font-size: 1.5625rem;
+}
+
+.inputSearch {
+  width: 100%;
+  height: 100%;
+  padding: 0 1.25rem 0 3.4375rem;
+
+  font-size: 1.25rem;
+
+  background-color: #f4f4f4;
+  border: 0.125rem solid transparent;
+  border-radius: 0.625rem;
+
+  transition: border 0.3s ease;
+}
+
+.inputSearch:focus {
+  border: 0.125rem solid #6b6b6b;
+}
+
+@media (min-width: 500px) {
+  .container {
+    height: 4.375rem;
+  }
+
+  .container svg {
+    left: 1.25rem;
+  }
+
+  .inputSearch {
+    padding: 0 1.25rem 0 4.0625rem;
+  }
+}

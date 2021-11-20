@@ -1,0 +1,19 @@
+.headerContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 2.5rem;
+}
+
+.ImageContainer {
+  width: 85%;
+  max-width: 31.25rem;
+  margin-bottom: 3.125rem;
+}
+
+@media (min-width: 500px) {
+  .ImageContainer {
+    margin-bottom: 5rem;
+  }
+}

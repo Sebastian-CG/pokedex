@@ -1,0 +1,26 @@
+.pokemonName {
+  color: #ffffff96;
+  font-size: 50px;
+}
+
+.property {
+  margin: 30px 0;
+}
+
+.propertyName {
+  padding: 0.625rem;
+  background: #f4f4f450;
+  border-radius: 10px;
+}
+
+.ImageContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0.625rem;
+
+  width: 300px;
+}
+
+.ImageContainer img {
+  width: 100%;
+}
