@@ -4,21 +4,23 @@ import { useRef } from "react";
 import Layout from "../../components/layout";
 import styles from "../../styles/pokemon-profile.module.css";
 
-const PokemonProfile = ({ data }) => {
+import { MdKeyboardArrowLeft } from "react-icons/md";
+
+const PokemonProfile = ({ pokemon }) => {
   const refContainer = useRef(null);
 
   const handleClick = e => {
     console.log(e);
   };
 
-  console.log(data);
+  console.log(pokemon);
 
   const dataHead = {
     refElement: refContainer,
     favicon: "/favicon.ico",
-    tabName: data.name || "Pokemon not found",
-    themeColor: "#000000",
-    mainContainerClass: data.types[0].type.name,
+    tabName: pokemon.name,
+    themeColor: "#ffffff",
+    mainContainerClass: pokemon.types[0].type.name,
     eventClick: handleClick,
   };
 
@@ -26,26 +28,12 @@ const PokemonProfile = ({ data }) => {
     <Layout {...dataHead}>
       <div>
         <Link href="/">
-          <a>Regresar</a>
+          <a className={styles.backButton}><MdKeyboardArrowLeft/></a>
         </Link>
 
-        <h1 className={styles.pokemonName}>{data.name}</h1>
-        <p className={styles.property}>
-          <span className={styles.propertyName}>Types:</span>{" "}
-          {data.types.map(type => type.type.name).join(", ")}
-        </p>
-        <p className={styles.property}>
-          <span className={styles.propertyName}>Weight:</span> {data.weight}
-        </p>
-        <p className={styles.property}>
-          <span className={styles.propertyName}>Height:</span> {data.height}
-        </p>
-        <p className={styles.property}>
-          <span className={styles.propertyName}>Base Experience:</span> {data.base_experience}
-        </p>
-
+        <h1 className={styles.pokemonName}>{pokemon.name}</h1>
         <figure className={styles.ImageContainer}>
-          <img src={data.sprites.other.dream_world.front_default} alt={data.name} />
+          <img src={pokemon.sprites.other.dream_world.front_default} alt={pokemon.name} />
         </figure>
       </div>
     </Layout>
@@ -60,7 +48,7 @@ export const getServerSideProps = async context => {
 
   return {
     props: {
-      data,
+      pokemon: data,
     },
   };
 };
