@@ -9,19 +9,12 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 const PokemonProfile = ({ pokemon }) => {
   const refContainer = useRef(null);
 
-  const handleClick = e => {
-    console.log(e);
-  };
-
-  console.log(pokemon);
-
   const dataHead = {
     refElement: refContainer,
     favicon: "/favicon.ico",
-    tabName: pokemon.name,
+    tabName: pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1),
     themeColor: "#ffffff",
     mainContainerClass: pokemon.types[0],
-    eventClick: handleClick,
   };
 
   return (

@@ -7,7 +7,7 @@ import Layout from "../components/layout";
 // import styles from "../styles/home.module.css";
 
 const Home = ({ types, pokemons }) => {
-  const [FilteredPokemons, setFilteredPokemons] = useState(pokemons);
+  const [filteredPokemons, setFilteredPokemons] = useState(pokemons);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
   const [visibleFilter, openFilter, closeFilter] = useModal();
@@ -24,6 +24,11 @@ const Home = ({ types, pokemons }) => {
       ? setFilteredPokemons(pokemons)
       : setFilteredPokemons(pokemons.filter(pokemon => pokemon.types.includes(filter)));
   }, [filter, pokemons]);
+
+  useEffect(() => {
+    const result = pokemons.filter(pokemon => pokemon.name.includes(search));
+    setFilteredPokemons(result);
+  }, [search, pokemons]);
 
   const dataHead = {
     refElement: refMainContainer,
@@ -43,7 +48,7 @@ const Home = ({ types, pokemons }) => {
         visibleFilter={visibleFilter}
         openFilter={openFilter}
       />
-      <PokemonGrid pokemons={FilteredPokemons} />
+      <PokemonGrid pokemons={filteredPokemons} />
     </Layout>
   );
 };

@@ -6,7 +6,7 @@ const SearchBar = ({ setState }) => {
     <div className={styles.container}>
       <RiSearchLine />
       <input
-        onChange={e => setState(e.target.value)}
+        onChange={e => setState(e.target.value.toLowerCase())}
         className={styles.inputSearch}
         type="search"
         placeholder="Search pokemon..."
